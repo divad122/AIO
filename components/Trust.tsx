@@ -1,25 +1,34 @@
 import React from 'react';
 
-const Trust: React.FC = () => {
+interface TrustProps {
+    content: {
+        title: string;
+        description: string;
+        badges: string[];
+        box_title: string;
+        box_content: string;
+    }
+}
+
+const Trust: React.FC<TrustProps> = ({ content }) => {
   return (
     <section id="trust" className="py-20 sm:py-28">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Zaufanie i bezpieczeństwo w standardzie.</h2>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">{content.title}</h2>
             <p className="mt-4 text-lg text-gray-300 max-w-2xl mx-auto">
-                Budujemy na fundamentach bezpieczeństwa, zgodności i transparentności.
+                {content.description}
             </p>
         </div>
         <div className="mt-12 flex flex-wrap justify-center items-center gap-x-8 gap-y-4 text-gray-400">
-            <div className="flex items-center gap-2"><BadgeIcon /> C2PA/SynthID</div>
-            <div className="flex items-center gap-2"><BadgeIcon /> Zgodność z RODO</div>
-            <div className="flex items-center gap-2"><BadgeIcon /> Enterprise-grade security</div>
-            <div className="flex items-center gap-2"><BadgeIcon /> SSO / SLA</div>
+            {content.badges.map((badge, index) => (
+                <div key={index} className="flex items-center gap-2"><BadgeIcon /> {badge}</div>
+            ))}
         </div>
         <div className="mt-16 max-w-2xl mx-auto bg-brand-light-dark border border-gray-800 p-8 rounded-lg">
-            <h3 className="text-lg font-bold text-white">Czy content generowany przez AI jest bezpieczny prawnie?</h3>
+            <h3 className="text-lg font-bold text-white">{content.box_title}</h3>
             <p className="mt-3 text-gray-300">
-                Tak. W AIO AUTOMATE™ każdy wygenerowany asset jest oznaczany cyfrowym "znakiem wodnym" C2PA/SynthID, który potwierdza jego pochodzenie. Dodatkowo, wraz z subskrypcją, otrzymujesz pełen transfer praw autorskich do komercyjnego wykorzystania wszystkich wygenerowanych materiałów. Masz pewność i spokój.
+                {content.box_content}
             </p>
         </div>
       </div>

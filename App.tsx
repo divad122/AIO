@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Problem from './components/Problem';
@@ -12,51 +12,137 @@ import Trust from './components/Trust';
 import FAQ from './components/FAQ';
 import CallToAction from './components/CallToAction';
 import Footer from './components/Footer';
-
-/*
- * =================================================================
- * CHECKLISTA - WYMAGANIA JAKOŚCIOWE
- * =================================================================
- * [x] Unikalny, nieplagiatowany copy
- * [x] Kompletna struktura sekcji (Hero, Problem, ..., CTA, Footer)
- * [x] Zaimplementowany Cennik i warstwa Legal-tech
- * [x] Design responsywny (mobile-first, testowane 360px - 1440px)
- * [x] Lighthouse Score (target 90/90/90/100)
- * [x] Dostępność: Alt-texty, focus states, kontrast AA
- * [x] Wydzielony blok "Focus Intelligence" jako zapowiedź
- * [x] FAQ zawiera pytania o AI Core, kredyty i publikację
- * =================================================================
- * 
- * =================================================================
- * ASSETS DO ZROBIENIA
- * =================================================================
- * 1. Hero Mockup: [hero-mockup.png/svg] - dynamiczny, czysty mock interfejsu AIO AUTOMATE™ pokazujący panel z kampaniami.
- * 2. Feature Icon 1: [icon-brief-intelligence.svg] - ikona symbolizująca inteligentną analizę briefu (np. dokument z żarówką).
- * 3. Feature Icon 2: [icon-creative-factory.svg] - ikona symbolizująca masową generację assetów (np. stos kart/obrazów).
- * 4. Feature Icon 3: [icon-legal-vault.svg] - ikona symbolizująca bezpieczeństwo prawne (np. tarcza z paragrafem).
- * =================================================================
- */
+import CreatorPlan from './pages/CreatorPlan';
+import ProPlan from './pages/ProPlan';
+import EnterprisePlan from './pages/EnterprisePlan';
+import StudioPlusPlan from './pages/StudioPlusPlan';
+import DemoPage from './pages/DemoPage';
+import PolicyPage from './pages/PolicyPage';
+import GdprPage from './pages/GdprPage';
+import C2paPage from './pages/C2paPage';
+import ContactPage from './pages/ContactPage';
+import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
+import DashboardLayout from './components/DashboardLayout';
+import { content } from './content';
+import { User } from './types';
 
 const App: React.FC = () => {
   const [isYearly, setIsYearly] = useState(false);
+  const [page, setPage] = useState('home');
+  const [lang, setLang] = useState<'pl' | 'en'>('pl');
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [currentUser, setCurrentUser] = useState<User | null>(null);
 
+  useEffect(() => {
+    document.documentElement.lang = lang;
+    const pageTitle = document.getElementById('page-title');
+    const pageDescription = document.getElementById('page-description');
+    if (pageTitle) {
+      pageTitle.textContent = content[lang].meta.title;
+    }
+    if (pageDescription) {
+      pageDescription.setAttribute('content', content[lang].meta.description);
+    }
+  }, [lang]);
+
+  const toggleLang = () => setLang(prev => prev === 'pl' ? 'en' : 'pl');
+
+  const navigateTo = (pageName: string, hash?: string) => {
+    setPage(pageName);
+    window.scrollTo(0, 0);
+    if (pageName === 'home' && hash) {
+      setTimeout(() => {
+        document.getElementById(hash)?.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    }
+  };
+
+  const handleLogin = (user: User) => {
+    setCurrentUser(user);
+    setIsAuthenticated(true);
+    navigateTo('dashboard');
+  };
+
+  const handleLogout = () => {
+    setCurrentUser(null);
+    setIsAuthenticated(false);
+    navigateTo('home');
+  };
+
+  const currentContent = content[lang];
+
+  const renderPublicPages = () => {
+    const handleBackToHome = (hash?: string) => navigateTo('home', hash);
+
+    switch (page) {
+      case 'creator':
+        return <CreatorPlan onBack={handleBackToHome} content={currentContent.creatorPlan} />;
+      case 'pro':
+        return <ProPlan onBack={handleBackToHome} content={currentContent.proPlan} />;
+      case 'enterprise':
+        return <EnterprisePlan onBack={handleBackToHome} content={currentContent.enterprisePlan} />;
+      case 'studioplus':
+        return <StudioPlusPlan onBack={handleBackToHome} content={currentContent.studioPlusPlan} />;
+      case 'demo':
+        return <DemoPage onBack={handleBackToHome} content={currentContent.demoPage} />;
+      case 'policy':
+        return <PolicyPage onBack={handleBackToHome} content={currentContent.policyPage} />;
+      case 'gdpr':
+        return <GdprPage onBack={handleBackToHome} content={currentContent.gdprPage} />;
+      case 'c2pa':
+        return <C2paPage onBack={handleBackToHome} content={currentContent.c2paPage} />;
+      case 'contact':
+        return <ContactPage onBack={handleBackToHome} content={currentContent.contactPage} />;
+      case 'login':
+        return <LoginPage onLogin={handleLogin} onNavigate={navigateTo} content={currentContent.loginPage} />;
+      case 'register':
+        return <RegisterPage onRegister={handleLogin} onNavigate={navigateTo} content={currentContent.registerPage} />;
+      default:
+        return (
+          <main className="flex-grow">
+            <Hero onDemoClick={() => navigateTo('demo')} onRegisterClick={() => navigateTo('register')} content={currentContent.hero} />
+            <Problem content={currentContent.problem} />
+            <Solution content={currentContent.solution} />
+            <HowItWorks content={currentContent.howItWorks} />
+            <Features content={currentContent.features} />
+            <LegalSafety content={currentContent.legalSafety} />
+            <IdealCustomerProfile onRegisterClick={() => navigateTo('register')} content={currentContent.icp} />
+            <Pricing isYearly={isYearly} setIsYearly={setIsYearly} onPlanSelect={() => navigateTo('register')} content={currentContent.pricing} />
+            <Trust content={currentContent.trust} />
+            <FAQ content={currentContent.faq} />
+            <CallToAction onRegisterClick={() => navigateTo('register')} content={currentContent.cta} />
+          </main>
+        );
+    }
+  };
+  
   return (
     <div className="flex flex-col min-h-screen">
-      <Header />
-      <main className="flex-grow">
-        <Hero />
-        <Problem />
-        <Solution />
-        <HowItWorks />
-        <Features />
-        <LegalSafety />
-        <IdealCustomerProfile />
-        <Pricing isYearly={isYearly} setIsYearly={setIsYearly} />
-        <Trust />
-        <FAQ />
-        <CallToAction />
-      </main>
-      <Footer />
+      <Header 
+        onNavigate={navigateTo} 
+        isHomePage={page === 'home'} 
+        lang={lang} 
+        toggleLang={toggleLang} 
+        content={currentContent.header}
+        isAuthenticated={isAuthenticated}
+        onLogout={handleLogout}
+        user={currentUser}
+      />
+      {isAuthenticated && currentUser ? (
+        <DashboardLayout 
+          page={page} 
+          onNavigate={navigateTo} 
+          user={currentUser} 
+          content={currentContent.dashboard} 
+          lang={lang}
+        />
+      ) : (
+        <>
+          {renderPublicPages()}
+          <Footer onNavigate={navigateTo} content={currentContent.footer} />
+        </>
+      )}
     </div>
   );
 };

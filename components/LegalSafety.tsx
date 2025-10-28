@@ -10,28 +10,36 @@ const SafetyGraphic = () => (
     </div>
 );
 
+interface LegalSafetyProps {
+    content: {
+        pretitle: string;
+        title: string;
+        description: string;
+        points: string[];
+        highlight: string;
+    }
+}
 
-const LegalSafety: React.FC = () => {
+const LegalSafety: React.FC<LegalSafetyProps> = ({ content }) => {
   return (
     <section id="legal-safety" className="py-20 sm:py-28 bg-brand-light-dark/70">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="text-sm font-semibold text-brand-accent uppercase tracking-wider">Legal & Safety First</h2>
+            <h2 className="text-sm font-semibold text-brand-accent uppercase tracking-wider">{content.pretitle}</h2>
             <p className="mt-2 text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-              Twórz bez obaw. Publikuj z pewnością.
+              {content.title}
             </p>
             <p className="mt-4 text-lg text-gray-300">
-              W erze dezinformacji i chaosu prawnego, AIO AUTOMATE™ stawia na transparentność. Jesteśmy pierwszą platformą, która integruje standardy C2PA i SynthID na każdym etapie, dając Ci niepodważalny dowód pochodzenia i własności treści.
+              {content.description}
             </p>
             <div className="mt-6 space-y-2 text-gray-400">
-                <p>✓ <span className="font-semibold text-gray-200">Certyfikaty C2PA/SynthID</span> dla każdego assetu</p>
-                <p>✓ <span className="font-semibold text-gray-200">Automatyczny transfer praw</span> do użytku komercyjnego</p>
-                <p>✓ <span className="font-semibold text-gray-200">Zgodność z RODO i UE AI Act</span></p>
-                <p>✓ <span className="font-semibold text-gray-200">Transparentność modeli AI</span> użytych do generacji</p>
+                {content.points.map((point, index) => (
+                    <p key={index}>✓ <span className="font-semibold text-gray-200">{point}</span></p>
+                ))}
             </div>
             <div className="mt-8 bg-brand-dark p-4 rounded-lg border border-green-500/30">
-              <p className="font-semibold text-green-300">Każdy asset otrzymuje C2PA/SynthID. Masz jasność praw komercyjnych.</p>
+              <p className="font-semibold text-green-300">{content.highlight}</p>
             </div>
           </div>
           <div className="flex justify-center">

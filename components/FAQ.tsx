@@ -1,27 +1,11 @@
 import React, { useState } from 'react';
 
-const faqData = [
-  {
-    question: "Czy mogę używać własnych materiałów?",
-    answer: "Oczywiście. Platforma pozwala na import własnych materiałów (wideo, grafiki, audio), które mogą być analizowane, edytowane i wykorzystywane w generowanych kampaniach. Nasze AI respektuje Brand Kit, zapewniając spójność z Twoimi zasobami."
-  },
-  {
-    question: "Jak działają kredyty i estymator kosztu renderu?",
-    answer: "Kredyty to uniwersalna waluta platformy. Każda operacja generowania (obraz, wideo, tekst, audio) zużywa określoną liczbę kredytów. Przed każdym renderem nasz estymator precyzyjnie określi koszt, dając Ci pełną kontrolę nad wydatkami."
-  },
-  {
-    question: "Czy platforma publikuje automatycznie?",
-    answer: "Tak. AIO AUTOMATE™ integruje się z popularnymi platformami społecznościowymi (Meta, TikTok i inne), umożliwiając automatyczne planowanie i publikację zatwierdzonych treści zgodnie z ustalonym harmonogramem."
-  },
-  {
-    question: "Czy wspieracie badania focusowe?",
-    answer: "Pracujemy nad modułem Focus Intelligence, który pozwoli na przeprowadzanie badań focusowych wygenerowanych kreacji na wczesnym etapie. Funkcjonalność ta jest planowana na Q4. Zapisz się do newslettera, by otrzymać informację o jej starcie."
-  },
-  {
-    question: "Na jakich modelach działa AI Core?",
-    answer: "Nasz AI Core to dynamiczny system, który korzysta z wielu wyspecjalizowanych modeli AI (obraz, wideo, audio, językowe). Dobieramy najlepsze narzędzie do danego zadania w czasie rzeczywistym, aby zapewnić najwyższą jakość i efektywność, bez przywiązywania się do jednego dostawcy."
+interface FAQProps {
+  content: {
+    title: string;
+    questions: { question: string; answer: string; }[];
   }
-];
+}
 
 const FAQItem: React.FC<{
   question: string;
@@ -51,7 +35,7 @@ const FAQItem: React.FC<{
   );
 };
 
-const FAQ: React.FC = () => {
+const FAQ: React.FC<FAQProps> = ({ content }) => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const handleToggle = (index: number) => {
@@ -62,10 +46,10 @@ const FAQ: React.FC = () => {
     <section id="faq" className="py-20 sm:py-28 bg-brand-light-dark">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white">Często zadawane pytania</h2>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white">{content.title}</h2>
         </div>
         <div className="mt-12 max-w-3xl mx-auto">
-          {faqData.map((item, index) => (
+          {content.questions.map((item, index) => (
             <FAQItem
               key={index}
               question={item.question}

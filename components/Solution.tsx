@@ -12,40 +12,38 @@ const AIGraphicSolution = () => (
   </div>
 );
 
+interface SolutionProps {
+    content: {
+        pretitle: string;
+        title: string;
+        description: string;
+        points: { title: string; description: string; }[];
+    }
+}
 
-const Solution: React.FC = () => {
+const Solution: React.FC<SolutionProps> = ({ content }) => {
   return (
     <section id="solution" className="py-20 sm:py-28 relative overflow-hidden">
         <div className="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-accent/5 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="max-w-xl">
-            <h2 className="text-sm font-semibold text-brand-accent uppercase tracking-wider">Rozwiązanie</h2>
+            <h2 className="text-sm font-semibold text-brand-accent uppercase tracking-wider">{content.pretitle}</h2>
             <p className="mt-2 text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-              Jedna platforma. Pełna kontrola. Bezpieczeństwo.
+              {content.title}
             </p>
             <p className="mt-4 text-lg text-gray-300">
-              AIO AUTOMATE™ to zintegrowany system operacyjny dla marketingu. Automatyzujemy cały cykl życia kampanii – od generacji treści, przez precyzyjną postprodukcję, aż po publikację, analizę i optymalizację.
+              {content.description}
             </p>
             <div className="mt-6 space-y-4">
-              <div className="flex items-start">
-                <CheckIcon className="flex-shrink-0 h-6 w-6 text-brand-accent" />
-                <p className="ml-3 text-gray-300">
-                  <span className="font-semibold text-white">End-to-End Workflow:</span> Generuj foto, wideo, 3D i copy w jednym miejscu.
-                </p>
-              </div>
-              <div className="flex items-start">
-                <CheckIcon className="flex-shrink-0 h-6 w-6 text-brand-accent" />
-                <p className="ml-3 text-gray-300">
-                  <span className="font-semibold text-white">Fine Control & Post/VFX:</span> Pełna kontrola nad głosem, muzyką, kadrem i kolorem.
-                </p>
-              </div>
-              <div className="flex items-start">
-                <CheckIcon className="flex-shrink-0 h-6 w-6 text-brand-accent" />
-                <p className="ml-3 text-gray-300">
-                  <span className="font-semibold text-white">Wbudowana warstwa prawna:</span> Standard C2PA/SynthID, transfer praw i zgodność z regulacjami.
-                </p>
-              </div>
+              {content.points.map((point, index) => (
+                 <div key={index} className="flex items-start">
+                    <CheckIcon className="flex-shrink-0 h-6 w-6 text-brand-accent" />
+                    <p className="ml-3 text-gray-300">
+                    <span className="font-semibold text-white">{point.title}</span> {point.description}
+                    </p>
+                </div>
+              ))}
             </div>
           </div>
           <div>
