@@ -1,3 +1,4 @@
+
 export const content = {
   pl: {
     meta: {
@@ -19,10 +20,8 @@ export const content = {
       title: "Automatyzacja marketingu",
       subtitle: "od briefu do publikacji.",
       description: "Nasze autonomiczne agenty AI przejmują cały proces kampanii, a wbudowana warstwa legal-tech zapewnia pełne bezpieczeństwo prawne i transparentność.",
-      cta_main: "Rozpocznij pilotaż",
-      cta_secondary: "Zobacz demo (2 min)",
-      cta_secondary_sub: "bez podawania karty",
       badge: "C2PA/SynthID w standardzie",
+      cta: "Dołącz do listy zainteresowanych"
     },
     problem: {
       pretitle: "Problem",
@@ -70,6 +69,11 @@ export const content = {
         { name: 'Fine Control Panel', description: 'Intuicyjne narzędzia postprodukcyjne do precyzyjnej kontroli nad każdym detalem kreacji.' },
       ]
     },
+    integrations: {
+        title: "Zintegrowany z narzędziami, których już używasz",
+        description: "AIO AUTOMATE™ łączy się z Twoim stosem technologicznym, tworząc płynny przepływ pracy bez potrzeby przełączania kontekstu. Mniej klikania, więcej tworzenia.",
+        logos: ['Meta', 'TikTok', 'Google', 'Salesforce', 'Adobe', 'HubSpot', 'Slack', 'Zapier']
+    },
     legalSafety: {
       pretitle: "Legal & Safety First",
       title: "Twórz bez obaw. Publikuj z pewnością.",
@@ -86,9 +90,9 @@ export const content = {
       title: "Zbudowane dla liderów. Skalowalne dla każdego.",
       description: "Niezależnie od wielkości Twojego zespołu, AIO AUTOMATE™ dostosowuje się do Twoich potrzeb, stając się potężnym narzędziem w rękach strategów.",
       profiles: [
-        { name: 'Agencje Marketingowe', description: 'Od pitchu do publikacji, samodzielnie i szybciej. Zaskocz klienta tempem i jakością, jednocześnie redukując koszty operacyjne. Skaluj obsługę bez powiększenia zespołu.', cta: 'Wzmocnij swoją agencję' },
-        { name: 'Marki D2C / eCommerce', description: 'Twórz nieograniczoną liczbę wariantów performance contentu. Wbudowana pętla optymalizacji i analiza ROI pozwolą Ci maksymalizować konwersję i wyprzedzić konkurencję.', cta: 'Zwiększ sprzedaż' },
-        { name: 'Małe Firmy i Twórcy', description: 'Twoje osobiste centrum marketingowe. Zarządzaj całym marketingiem samodzielnie, bez potrzeby zatrudniania agencji czy freelancerów. Od strategii po codzienne posty.', cta: 'Zautomatyzuj swój marketing' },
+        { name: 'Agencje Marketingowe', description: 'Od pitchu do publikacji, samodzielnie i szybciej. Zaskocz klienta tempem i jakością, jednocześnie redukując koszty operacyjne. Skaluj obsługę bez powiększenia zespołu.', cta: 'Dołącz do listy' },
+        { name: 'Marki D2C / eCommerce', description: 'Twórz nieograniczoną liczbę wariantów performance contentu. Wbudowana pętla optymalizacji i analiza ROI pozwolą Ci maksymalizować konwersję i wyprzedzić konkurencję.', cta: 'Dołącz do listy' },
+        { name: 'Małe Firmy i Twórcy', description: 'Twoje osobiste centrum marketingowe. Zarządzaj całym marketingiem samodzielnie, bez potrzeby zatrudniania agencji czy freelancerów. Od strategii po codzienne posty.', cta: 'Dołącz do listy' },
       ]
     },
     pricing: {
@@ -140,15 +144,16 @@ export const content = {
         { question: "Na jakich modelach działa AI Core?", answer: "Nasz AI Core to dynamiczny system, który korzysta z wielu wyspecjalizowanych modeli AI (obraz, wideo, audio, językowe). Dobieramy najlepsze narzędzie do danego zadania w czasie rzeczywistym, aby zapewnić najwyższą jakość i efektywność, bez przywiązywania się do jednego dostawcy." }
       ]
     },
-    cta: {
-      title: "Gotów na rewolucję w marketingu?",
-      description: "Zacznij pilotaż (6-8 tygodni) lub umów się na indywidualne demo, by zobaczyć, jak AIO AUTOMATE™ może odmienić Twoją pracę.",
+    waitlistForm: {
+      title: "Dołącz do listy zainteresowanych",
+      description: "Bądź pierwszy w kolejce. Zostaw swoje dane, a poinformujemy Cię o starcie platformy i specjalnych ofertach dla pionierów.",
       form: {
-          fullName: "Imię i nazwisko",
-          email: "Adres email",
-          company: "Nazwa firmy",
-          submit: "Zarejestruj się",
-          success: "Dziękujemy za zgłoszenie! Skontaktujemy się z Tobą wkrótce, aby umówić demo.",
+        firstName: "Imię",
+        lastName: "Nazwisko",
+        industry: "Rodzaj firmy / Branża",
+        email: "Adres email",
+        submit: "Wyślij zgłoszenie",
+        success: "Dziękujemy! Zostałeś dodany/a do listy. Odezwamy się wkrótce!",
       }
     },
     footer: {
@@ -503,10 +508,8 @@ export const content = {
       title: "Marketing Automation",
       subtitle: "from brief to broadcast.",
       description: "Our autonomous AI agents handle the entire campaign process, and a built-in legal-tech layer ensures full legal safety and transparency.",
-      cta_main: "Start Pilot Program",
-      cta_secondary: "Watch Demo (2 min)",
-      cta_secondary_sub: "no credit card required",
       badge: "C2PA/SynthID Included",
+      cta: "Join the Waitlist"
     },
     problem: {
       pretitle: "The Problem",
@@ -554,6 +557,11 @@ export const content = {
         { name: 'Fine Control Panel', description: 'Intuitive post-production tools for precise control over every creative detail.' },
       ]
     },
+    integrations: {
+        title: "Integrated with the tools you already use",
+        description: "AIO AUTOMATE™ connects with your existing tech stack, creating a seamless workflow without context switching. Less clicking, more creating.",
+        logos: ['Meta', 'TikTok', 'Google', 'Salesforce', 'Adobe', 'HubSpot', 'Slack', 'Zapier']
+    },
     legalSafety: {
       pretitle: "Legal & Safety First",
       title: "Create without fear. Publish with confidence.",
@@ -570,9 +578,9 @@ export const content = {
       title: "Built for Leaders. Scalable for Everyone.",
       description: "Regardless of your team's size, AIO AUTOMATE™ adapts to your needs, becoming a powerful tool in the hands of strategists.",
       profiles: [
-        { name: 'Marketing Agencies', description: 'From pitch to publication, faster and more independently. Wow clients with speed and quality while reducing operational costs. Scale your services without growing your team.', cta: 'Empower your agency' },
-        { name: 'D2C / eCommerce Brands', description: 'Create unlimited variations of performance content. A built-in optimization loop and ROI analysis will help you maximize conversions and outperform the competition.', cta: 'Increase your sales' },
-        { name: 'Small Businesses & Creators', description: 'Your personal marketing hub. Manage all your marketing yourself, without needing an agency or freelancers. From strategy to daily posts.', cta: 'Automate your marketing' },
+        { name: 'Marketing Agencies', description: 'From pitch to publication, faster and more independently. Wow clients with speed and quality while reducing operational costs. Scale your services without growing your team.', cta: 'Join the list' },
+        { name: 'D2C / eCommerce Brands', description: 'Create unlimited variations of performance content. A built-in optimization loop and ROI analysis will help you maximize conversions and outperform the competition.', cta: 'Join the list' },
+        { name: 'Small Businesses & Creators', description: 'Your personal marketing hub. Manage all your marketing yourself, without needing an agency or freelancers. From strategy to daily posts.', cta: 'Join the list' },
       ]
     },
     pricing: {
@@ -624,15 +632,16 @@ export const content = {
         { question: "What models does the AI Core run on?", answer: "Our AI Core is a dynamic system that uses multiple specialized AI models (image, video, audio, language). We select the best tool for the job in real-time to ensure the highest quality and efficiency, without being tied to a single provider." }
       ]
     },
-    cta: {
-      title: "Ready for a marketing revolution?",
-      description: "Start a pilot program (6-8 weeks) or schedule a personalized demo to see how AIO AUTOMATE™ can transform your work.",
+    waitlistForm: {
+      title: "Join the Waitlist",
+      description: "Be the first in line. Leave your details, and we'll notify you about the platform launch and special offers for pioneers.",
       form: {
-          fullName: "Full Name",
-          email: "Email Address",
-          company: "Company Name",
-          submit: "Sign up",
-          success: "Thank you for your submission! We will contact you shortly to schedule a demo.",
+        firstName: "First Name",
+        lastName: "Last Name",
+        industry: "Company Type / Industry",
+        email: "Email Address",
+        submit: "Submit Application",
+        success: "Thank you! You've been added to the list. We'll be in touch soon!",
       }
     },
     footer: {

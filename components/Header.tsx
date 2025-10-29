@@ -71,8 +71,17 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, isHomePage, lang, toggleLan
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
-            <a href="#" onClick={handleLogoClick} className="text-xl font-bold text-white cursor-pointer">
-              AIO AUTOMATE<span className="text-brand-accent">™</span>
+            <a href="#" onClick={handleLogoClick} className="flex items-center text-white cursor-pointer">
+                <svg width="85" height="28" viewBox="0 0 85 28" fill="currentColor" className="mr-1.5 h-7 w-auto">
+                    {/* A */}
+                    <path d="M17.5 0 L0 28 H8.5 L17.5 11 L26.5 28 H35 Z" />
+                    {/* I */}
+                    <rect x="41" width="8" height="28" />
+                    {/* O */}
+                    <path d="M71 28C78.7178 28 85 21.7178 85 14C85 6.28223 78.7178 0 71 0C63.2822 0 57 6.28223 57 14C57 21.7178 63.2822 28 71 28ZM71 22C75.4183 22 79 18.4183 79 14C79 9.58172 75.4183 6 71 6C66.5817 6 63 9.58172 63 14C63 18.4183 66.5817 22 71 22Z" fillRule="evenodd" clipRule="evenodd" />
+                </svg>
+                <span className="text-xl font-bold tracking-wider">AUTOMATE</span>
+                <span className="text-brand-accent text-lg font-bold self-start">™</span>
             </a>
           </div>
           <div className="flex items-center space-x-4 md:space-x-8">
@@ -80,7 +89,6 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, isHomePage, lang, toggleLan
               <div className="hidden md:block">
                 <nav className="flex items-center space-x-8">
                   <a href="#features" onClick={(e) => handleNavClick(e, 'home', 'features')} className="text-gray-300 hover:text-brand-accent transition-colors">{content.nav.features}</a>
-                  <a href="#pricing" onClick={(e) => handleNavClick(e, 'home', 'pricing')} className="text-gray-300 hover:text-brand-accent transition-colors">{content.nav.pricing}</a>
                   <a href="#faq" onClick={(e) => handleNavClick(e, 'home', 'faq')} className="text-gray-300 hover:text-brand-accent transition-colors">{content.nav.faq}</a>
                 </nav>
               </div>
@@ -90,14 +98,7 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, isHomePage, lang, toggleLan
               {isAuthenticated && user ? (
                 <UserMenu user={user} onLogout={onLogout} logoutText={content.logout} />
               ) : (
-                <div className="hidden sm:flex items-center space-x-4">
-                    <a href="#" onClick={(e) => handleNavClick(e, 'login')} className="text-gray-300 hover:text-brand-accent transition-colors font-semibold">
-                        {content.login}
-                    </a>
-                    <a href="#" onClick={(e) => handleNavClick(e, 'register')} className="bg-brand-accent text-brand-dark font-semibold py-2 px-5 rounded-md hover:bg-brand-accent-400 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-brand-dark focus:ring-brand-accent">
-                        {content.register}
-                    </a>
-                </div>
+                null
               )}
             </div>
           </div>

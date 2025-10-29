@@ -1,29 +1,18 @@
+
 import React from 'react';
 
 interface HeroProps {
-  onDemoClick: () => void;
-  onRegisterClick: () => void;
+  onWaitlistClick: () => void;
   content: {
     title: string;
     subtitle: string;
     description: string;
-    cta_main: string;
-    cta_secondary: string;
-    cta_secondary_sub: string;
     badge: string;
+    cta: string;
   }
 }
 
-const Hero: React.FC<HeroProps> = ({ onDemoClick, onRegisterClick, content }) => {
-  const handleDemoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    onDemoClick();
-  };
-
-  const handleRegisterClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    onRegisterClick();
-  };
+const Hero: React.FC<HeroProps> = ({ onWaitlistClick, content }) => {
   
   const AIGraphic = () => (
     <div className="relative w-full h-64 sm:h-80 lg:h-96 flex items-center justify-center" aria-hidden="true">
@@ -47,21 +36,13 @@ const Hero: React.FC<HeroProps> = ({ onDemoClick, onRegisterClick, content }) =>
         <p className="mt-6 max-w-2xl mx-auto text-lg text-gray-300">
           {content.description}
         </p>
-        <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div className="mt-10">
           <a
-            href="#"
-            onClick={handleRegisterClick}
-            className="w-full sm:w-auto bg-gradient-to-r from-brand-accent-400 to-brand-accent-600 text-brand-dark font-bold py-3 px-8 rounded-full hover:scale-105 transform-gpu transition-transform focus:outline-none focus:ring-4 focus:ring-brand-accent/50"
+            href="#waitlist"
+            onClick={(e) => { e.preventDefault(); onWaitlistClick(); }}
+            className="inline-block py-4 px-10 border border-transparent shadow-sm text-lg font-bold rounded-full text-brand-dark bg-gradient-to-r from-brand-accent-400 to-brand-accent-600 hover:scale-105 transform-gpu transition-transform focus:outline-none focus:ring-4 focus:ring-brand-accent/50"
           >
-            {content.cta_main}
-          </a>
-          <a
-            href="#"
-            onClick={handleDemoClick}
-            className="w-full sm:w-auto bg-brand-light-dark/50 backdrop-blur-sm border border-gray-700 text-white font-semibold py-3 px-8 rounded-full hover:bg-gray-800 hover:border-gray-600 transition-all transform-gpu hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-brand-dark focus:ring-gray-500"
-          >
-            {content.cta_secondary}
-            <span className="block text-xs text-gray-400 -mt-1">{content.cta_secondary_sub}</span>
+            {content.cta}
           </a>
         </div>
         <div className="mt-8 text-sm text-gray-400 font-medium">

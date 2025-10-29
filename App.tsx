@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
@@ -5,12 +6,12 @@ import Problem from './components/Problem';
 import Solution from './components/Solution';
 import HowItWorks from './components/HowItWorks';
 import Features from './components/Features';
+import Integrations from './components/Integrations';
 import LegalSafety from './components/LegalSafety';
 import IdealCustomerProfile from './components/IdealCustomerProfile';
-import Pricing from './components/Pricing';
+import Waitlist from './components/Waitlist';
 import Trust from './components/Trust';
 import FAQ from './components/FAQ';
-import CallToAction from './components/CallToAction';
 import Footer from './components/Footer';
 import CreatorPlan from './pages/CreatorPlan';
 import ProPlan from './pages/ProPlan';
@@ -101,17 +102,17 @@ const App: React.FC = () => {
       default:
         return (
           <main className="flex-grow">
-            <Hero onDemoClick={() => navigateTo('demo')} onRegisterClick={() => navigateTo('register')} content={currentContent.hero} />
+            <Hero onWaitlistClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })} content={currentContent.hero} />
             <Problem content={currentContent.problem} />
             <Solution content={currentContent.solution} />
             <HowItWorks content={currentContent.howItWorks} />
             <Features content={currentContent.features} />
+            <Integrations content={currentContent.integrations} />
             <LegalSafety content={currentContent.legalSafety} />
-            <IdealCustomerProfile onRegisterClick={() => navigateTo('register')} content={currentContent.icp} />
-            <Pricing isYearly={isYearly} setIsYearly={setIsYearly} onPlanSelect={() => navigateTo('register')} content={currentContent.pricing} />
+            <IdealCustomerProfile content={currentContent.icp} />
             <Trust content={currentContent.trust} />
             <FAQ content={currentContent.faq} />
-            <CallToAction onRegisterClick={() => navigateTo('register')} content={currentContent.cta} />
+            <Waitlist content={currentContent.waitlistForm} />
           </main>
         );
     }
