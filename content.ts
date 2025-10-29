@@ -153,7 +153,9 @@ export const content = {
         industry: "Rodzaj firmy / Branża",
         email: "Adres email",
         submit: "Wyślij zgłoszenie",
-        success: "Dziękujemy! Zostałeś dodany/a do listy. Odezwamy się wkrótce!",
+        submitting: "Wysyłanie...",
+        success: "Dziękujemy! Twoje zgłoszenie zostało pomyślnie wysłane. Skontaktujemy się z Tobą wkrótce.",
+        error: "Wystąpił błąd. Spróbuj ponownie później.",
       }
     },
     footer: {
@@ -640,8 +642,10 @@ export const content = {
         lastName: "Last Name",
         industry: "Company Type / Industry",
         email: "Email Address",
-        submit: "Submit Application",
-        success: "Thank you! You've been added to the list. We'll be in touch soon!",
+        submit: "Send Application",
+        submitting: "Sending...",
+        success: "Thank you! Your application has been sent successfully. We will contact you shortly.",
+        error: "An error occurred. Please try again later.",
       }
     },
     footer: {
