@@ -1,5 +1,6 @@
 
 
+
 import React, { useState } from 'react';
 
 interface WaitlistProps {
@@ -10,6 +11,7 @@ interface WaitlistProps {
             firstName: string;
             lastName: string;
             industry: string;
+            position: string;
             email: string;
             submit: string;
             submitting: string;
@@ -24,6 +26,7 @@ const Waitlist: React.FC<WaitlistProps> = ({ content }) => {
     firstName: '',
     lastName: '',
     industry: '',
+    position: '',
     email: '',
   });
   const [submitted, setSubmitted] = useState(false);
@@ -57,7 +60,7 @@ const Waitlist: React.FC<WaitlistProps> = ({ content }) => {
 
       if (response.ok) {
         setSubmitted(true);
-        setFormData({ firstName: '', lastName: '', industry: '', email: '' });
+        setFormData({ firstName: '', lastName: '', industry: '', position: '', email: '' });
       } else {
         throw new Error('Form submission failed');
       }
@@ -110,6 +113,10 @@ const Waitlist: React.FC<WaitlistProps> = ({ content }) => {
                   <div>
                       <label htmlFor="industry" className="sr-only">{content.form.industry}</label>
                       <input type="text" name="industry" id="industry" autoComplete="organization" required value={formData.industry} onChange={handleChange} disabled={submitted || isLoading} className={inputClasses} placeholder={content.form.industry} />
+                  </div>
+                  <div>
+                      <label htmlFor="position" className="sr-only">{content.form.position}</label>
+                      <input type="text" name="position" id="position" autoComplete="organization-title" required value={formData.position} onChange={handleChange} disabled={submitted || isLoading} className={inputClasses} placeholder={content.form.position} />
                   </div>
                   <div>
                       <label htmlFor="email" className="sr-only">{content.form.email}</label>

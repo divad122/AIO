@@ -1,4 +1,5 @@
 
+
 export const content = {
   pl: {
     meta: {
@@ -150,7 +151,8 @@ export const content = {
       form: {
         firstName: "Imię",
         lastName: "Nazwisko",
-        industry: "Rodzaj firmy / Branża",
+        industry: "Branża",
+        position: "Stanowisko",
         email: "Adres email",
         submit: "Wyślij zgłoszenie",
         submitting: "Wysyłanie...",
@@ -640,7 +642,8 @@ export const content = {
       form: {
         firstName: "First Name",
         lastName: "Last Name",
-        industry: "Company Type / Industry",
+        industry: "Industry",
+        position: "Position",
         email: "Email Address",
         submit: "Send Application",
         submitting: "Sending...",
