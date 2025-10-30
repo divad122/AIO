@@ -420,7 +420,7 @@ export const content = {
                 vision: { label: "Wizja Marki", placeholder: "Jaka jest długoterminowa wizja? Gdzie widzicie swoją markę za 5-10 lat?" },
                 values: { label: "Kluczowe Wartości (jedna na linię)", placeholder: "Innowacja\nZaufanie\nJakość" },
                 personality: { label: "Osobowość / Archetyp Marki", placeholder: "np. Mędrzec, Odkrywca, Bohater..." },
-                target_audience: { label: "Charakterystyka Grupy Docelowej", placeholder: "Opisz idealnego klienta, jego potrzeby, wartości i zachowania." },
+                target_audience: { label: "Charakterystyka Grupy Docielowej", placeholder: "Opisz idealnego klienta, jego potrzeby, wartości i zachowania." },
                 ai_allowed: { label: "Przetwarzanie przez AI", description: "Zezwól AI na analizę i wykorzystanie publicznie dostępnych informacji o marce." },
                 c2pa: { label: "Standard C2PA/SynthID", enforced: "Wymuszony", optional: "Opcjonalny" },
             }

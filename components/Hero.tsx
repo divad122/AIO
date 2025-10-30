@@ -31,7 +31,7 @@ const Hero: React.FC<HeroProps> = ({ onWaitlistClick, content }) => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 z-10">
         <h1 className="text-4xl sm:text-5xl lg:text-7xl font-extrabold text-white tracking-tight">
           {content.title}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent-300 to-brand-accent-500"> {content.subtitle}</span>
+          <span className="block text-transparent bg-clip-text bg-gradient-to-r from-brand-accent-300 to-brand-accent-500">{content.subtitle}</span>
         </h1>
         <p className="mt-6 max-w-2xl mx-auto text-lg text-gray-300">
           {content.description}

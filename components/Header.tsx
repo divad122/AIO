@@ -27,7 +27,7 @@ const LanguageSwitcher: React.FC<{ lang: 'pl' | 'en'; toggleLang: () => void; }>
         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9V3m-9 9h18" />
         </svg>
-        <span className="font-semibold uppercase">{lang}</span>
+        <span className="font-semibold uppercase">{lang === 'pl' ? 'en' : 'pl'}</span>
     </button>
 );
 
@@ -89,6 +89,7 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, isHomePage, lang, toggleLan
               <div className="hidden md:block">
                 <nav className="flex items-center space-x-8">
                   <a href="#features" onClick={(e) => handleNavClick(e, 'home', 'features')} className="text-gray-300 hover:text-brand-accent transition-colors">{content.nav.features}</a>
+                  <a href="#pricing" onClick={(e) => handleNavClick(e, 'home', 'pricing')} className="text-gray-300 hover:text-brand-accent transition-colors">{content.nav.pricing}</a>
                   <a href="#faq" onClick={(e) => handleNavClick(e, 'home', 'faq')} className="text-gray-300 hover:text-brand-accent transition-colors">{content.nav.faq}</a>
                 </nav>
               </div>

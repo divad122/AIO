@@ -12,7 +12,7 @@ const yearlyPrices = {
 interface PricingProps {
   isYearly: boolean;
   setIsYearly: (isYearly: boolean) => void;
-  onPlanSelect: () => void;
+  onPlanSelect: (planId: string) => void;
   content: {
     title: string;
     description: string;
@@ -74,7 +74,7 @@ const Pricing: React.FC<PricingProps> = ({ isYearly, setIsYearly, onPlanSelect, 
                 <li className="flex"><CheckIcon className="h-5 w-5 text-brand-accent mr-2 mt-0.5 shrink-0" /> {plan.brand}</li>
                 {plan.features.map(f => <li key={f} className="flex"><CheckIcon className="h-5 w-5 text-brand-accent mr-2 mt-0.5 shrink-0" />{f}</li>)}
               </ul>
-              <button onClick={() => onPlanSelect()} className={`mt-8 block w-full text-center py-3 px-6 rounded-lg font-semibold transition-transform hover:scale-105 transform-gpu ${plan.popular ? 'bg-gradient-to-r from-brand-accent-400 to-brand-accent-600 text-brand-dark' : 'bg-brand-light-dark text-white hover:bg-gray-800 border border-gray-700'}`}>
+              <button onClick={() => onPlanSelect(plan.id)} className={`mt-8 block w-full text-center py-3 px-6 rounded-lg font-semibold transition-transform hover:scale-105 transform-gpu ${plan.popular ? 'bg-gradient-to-r from-brand-accent-400 to-brand-accent-600 text-brand-dark' : 'bg-brand-light-dark text-white hover:bg-gray-800 border border-gray-700'}`}>
                 {content.cta}
               </button>
             </div>

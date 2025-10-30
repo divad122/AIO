@@ -1,4 +1,6 @@
 
+
+
 import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
@@ -8,6 +10,7 @@ import HowItWorks from './components/HowItWorks';
 import Features from './components/Features';
 import Integrations from './components/Integrations';
 import LegalSafety from './components/LegalSafety';
+import Pricing from './components/Pricing';
 import IdealCustomerProfile from './components/IdealCustomerProfile';
 import Waitlist from './components/Waitlist';
 import Trust from './components/Trust';
@@ -71,6 +74,10 @@ const App: React.FC = () => {
     navigateTo('home');
   };
 
+  const handlePlanSelect = (planId: string) => {
+    navigateTo(planId);
+  };
+
   const currentContent = content[lang];
 
   const renderPublicPages = () => {
@@ -110,6 +117,11 @@ const App: React.FC = () => {
             <Integrations content={currentContent.integrations} />
             <LegalSafety content={currentContent.legalSafety} />
             <IdealCustomerProfile content={currentContent.icp} />
+            <Pricing
+              isYearly={isYearly}
+              setIsYearly={setIsYearly}
+              onPlanSelect={handlePlanSelect}
+              content={currentContent.pricing} />
             <Trust content={currentContent.trust} />
             <FAQ content={currentContent.faq} />
             <Waitlist content={currentContent.waitlistForm} />
